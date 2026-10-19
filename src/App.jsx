@@ -167,13 +167,20 @@ function App() {
         );
       }
 
-      const data = await response.json();
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
 
-      const reply =
-        data.reply ??
-        data.response ??
-        data.answer ??
-        data.message;
+      let reply = "";
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        reply += decoder.decode(value, { stream: true });
+
+        // Update the assistant message with the accumulated reply.
+      }
+      reply += decoder.decode();
 
       if (typeof reply !== "string") {
         throw new Error(
