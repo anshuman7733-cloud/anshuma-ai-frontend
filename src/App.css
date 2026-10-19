@@ -509,8 +509,8 @@ button {
 .message-content {
   color: var(--text);
   font-size: 14px;
-  line-height: 1.85;
-  white-space: pre-wrap;
+  line-height: 1.6;
+  white-space: normal;
   overflow-wrap: anywhere;
 }
 
@@ -866,19 +866,30 @@ button {
   font-size: 1.1rem;
 }
 
-.message-content p,
-.message-content ul,
-.message-content ol {
-  margin: 12px 0;
+.message-content {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.message-content p {
+  margin: 0 0 6px;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
 }
 
 .message-content ul,
 .message-content ol {
+  margin: 4px 0;
   padding-left: 24px;
 }
 
 .message-content li {
-  margin: 6px 0;
+  margin: 1px 0;
+}
+.message-content li p {
+  margin: 0;
 }
 
 .message-content a {
@@ -888,7 +899,7 @@ button {
 }
 
 .message-content blockquote {
-  margin: 16px 0;
+  margin: 10px 0;
   padding: 4px 16px;
   border-left: 3px solid var(--accent-strong);
   color: var(--muted);
@@ -907,11 +918,11 @@ button {
 .message-content pre {
   overflow-x: auto;
   padding: 16px;
-  margin: 16px 0;
+  margin: 12px 0;
   background: #0b0b10;
   border: 1px solid #303039;
   border-radius: 12px;
-  line-height: 1.65;
+  line-height: 1.5;
   font-size: 13px;
   white-space: pre;
 }
@@ -930,7 +941,7 @@ button {
   max-width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
-  margin: 16px 0;
+  margin: 12px 0;
   font-size: 13px;
 }
 
@@ -949,7 +960,7 @@ button {
 .message-content hr {
   border: 0;
   border-top: 1px solid var(--border);
-  margin: 20px 0;
+  margin: 12px 0;
 }
 
 .message-content img {
@@ -960,4 +971,34 @@ button {
 .message-content input[type="checkbox"] {
   accent-color: var(--accent-strong);
   margin-right: 8px;
+}
+
+/* Compact AI response formatting */
+.ai-content {
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.ai-content p {
+  margin: 0 0 6px;
+}
+
+.ai-content ul,
+.ai-content ol {
+  margin: 4px 0;
+  padding-left: 24px;
+}
+
+.ai-content li {
+  margin: 1px 0;
+}
+
+.ai-content li p {
+  margin: 0;
+}
+
+/* Preserve line breaks in user messages */
+.user-content {
+  white-space: pre-wrap;
+  line-height: 1.5;
 }
