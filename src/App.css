@@ -56,7 +56,9 @@ button {
 /* Sidebar */
 
 .sidebar {
-  width: 270px;
+  /* Desktop: sidebar remains open */
+  width: 260px;
+  transform: translateX(0);
   min-width: 270px;
   padding: 19px 13px 12px;
   background: var(--sidebar);
@@ -67,8 +69,24 @@ button {
   z-index: 5;
 }
 
+/* Desktop: sidebar remains open */
+.sidebar {
+  width: 260px;
+  transform: translateX(0);
+}
+
+/* Mobile: sidebar is closed by default */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
 .sidebar.closed {
-  width: 76px;
+  width: 100px;
   min-width: 76px;
 }
 
@@ -263,7 +281,7 @@ button {
 }
 
 .delete-btn {
-  display: none;
+  display: flex;
   border: 0;
   color: var(--muted);
   background: transparent;
